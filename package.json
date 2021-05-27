@@ -1,0 +1,29 @@
+{
+  "name": "photo-app-backend",
+  "version": "1.0.0",
+  "description": "Backend for Photo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikrajput/Photo-app-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikrajput/Photo-app-backend/issues"
+  },
+  "homepage": "https://github.com/Nikrajput/Photo-app-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.11"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.7"
+  }
+}

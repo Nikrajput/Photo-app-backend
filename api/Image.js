@@ -8,7 +8,7 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
     
     try{
         const result=await cloudinary.uploader.upload(req.file.path)
-        const username=req.file.originalname.substr(0,req.file.originalname.length-4)
+        const username=req.file.originalname
         const image=new Image({
             username:username,
             countOfPeople:0,

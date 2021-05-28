@@ -7,6 +7,7 @@ const Image=require('../models/Image')
 router.post('/upload',upload.single("image"),async(req,res)=>{
     
     try{
+        console.log(req.file)
         const result=await cloudinary.uploader.upload(req.file.path)
         const username=req.file.originalname
         console.log(username)

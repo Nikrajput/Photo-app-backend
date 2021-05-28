@@ -8,7 +8,7 @@ const sharp=require('sharp')
 router.post('/upload',upload.single("image"),async(req,res)=>{
     
     try{
-        const thumbnailImage=await sharp(req.file.path).resize(200,200)
+        const thumbnailImage=await sharp(req.file.path).resize(200,200).toFile('uploads/' + 'thumbnails-' + req.file.originalname)
         console.log(thumbnailImage)
         const result=await cloudinary.uploader.upload(req.file.path)
         const username=req.file.originalname.substr(0,req.file.originalname.length-4)

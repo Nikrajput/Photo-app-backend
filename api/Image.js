@@ -15,7 +15,6 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
         const image=new Image({
             username:username,
             countOfPeople:0,
-            thumbnail:"Feeling happy",
             path:result.secure_url,
         })
         await image.save()

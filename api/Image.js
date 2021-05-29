@@ -24,7 +24,7 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
             data: {url: `${result.secure_url}`, accuracy_boost: 3}
         }
         const response=await axios.request(options)
-        console.log(response)
+        console.log(response.data)
         const image=new Image({
             username:username,
             countOfPeople:0,

@@ -24,17 +24,21 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
             data: {url: `${result.secure_url}`, accuracy_boost: 3}
         }
         const response=await axios.request(options)
-        console.log(response.data.detected_faces.length)
+        
         const image=new Image({
             username:username,
-            countOfPeople:0,
+            countOfPeople:response.data.detected_faces.length,
             path:result.secure_url,
         })
         await image.save()
-        res.send('Uploaded')
+        res.json({
+            message:'Pic Uploaded'
+        })
     }
     catch{
-        res.send('Enter valid data')
+        res.json({
+            message:'Something went wrong while uploading pic'
+        })
     }
 })
 

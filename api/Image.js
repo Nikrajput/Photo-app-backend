@@ -27,7 +27,7 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
         
         const image=new Image({
             username:username,
-            countOfPeople:response.data.detected_faces.length,
+            countOfFaces:response.data.detected_faces.length,
             path:result.secure_url,
         })
         await image.save()

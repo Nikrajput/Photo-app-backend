@@ -42,5 +42,20 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
     }
 })
 
+route.get('/all',async(req,res)=>{
+
+    try{
+        const images=await Image.find().sort({createdAt:'desc'})
+        res.json({
+            status:'SUCCESS',
+            images:images
+        })
+    }
+    catch{
+        res.json({
+            status:'FAILED'
+        })
+    }
+})
 
 module.exports=router

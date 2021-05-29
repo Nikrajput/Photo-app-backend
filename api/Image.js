@@ -45,7 +45,7 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
 router.get('/all',async(req,res)=>{
 
     try{
-        const images=await Image.find().sort({createdAt:'desc'})
+        const images=await Image.find().sort({createdAt:'desc'}).exec()
         res.json({
             status:'SUCCESS',
             images:images

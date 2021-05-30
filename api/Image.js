@@ -21,7 +21,7 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
                 'x-rapidapi-key': 'de27c4c4c7msh9366d5082f1d78ep1ca312jsn910995513853',
                 'x-rapidapi-host': 'face-detection6.p.rapidapi.com'
             },
-            data: {url: `${result.secure_url}`, accuracy_boost: 3}
+            data: {url: `${result.secure_url}`, accuracy_boost: 4}
         }
         const response=await axios.request(options)
         

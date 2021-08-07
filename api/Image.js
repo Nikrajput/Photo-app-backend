@@ -3,6 +3,7 @@ const router=express.Router()
 const upload=require('../config/multer')
 const cloudinary=require('../config/cloudinary')
 const Image=require('../models/Image')
+const User=require('../models/User')
 const sharp=require('sharp')
 const axios=require('axios').default
 
@@ -42,10 +43,11 @@ router.post('/upload',upload.single("image"),async(req,res)=>{
     }
 })
 
-router.get('/all',async(req,res)=>{
+router.get('/all/:id',async(req,res)=>{
 
     try{
-        const images=await Image.find().sort({createdAt:'desc'}).exec()
+        const user=await User.findById(req.params.id)
+        const images=await Image.find({username:user.username}).sort({createdAt:'desc'}).exec()
         res.json({
             status:'SUCCESS',
             images:images
